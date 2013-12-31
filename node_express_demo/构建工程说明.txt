@@ -1,0 +1,6 @@
+1.利用 WebStorm 构建基于 express 和 ejs node工程
+
+2.利用 bower 命令来初始化 bower 配置文件（或者直接手工书写配置文件）
+
+3.利用 bower install 安装下载相关 web 包，目前有（会持续补充）：
+bootstrap jquery html5shiv respond
