@@ -40,7 +40,7 @@ app.get('/', function(req, res){
 })
 
 app.get('/Readme.md', function(req, res){
-  // rendering a view from https://github.com/visionmedia/express/master/Readme.md
+  // rendering a view from https://github.com/visionmedia/express/blob/master/Readme.md
   res.render('Readme.md');
 })
 
