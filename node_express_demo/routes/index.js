@@ -3,10 +3,10 @@
  */
 "use strict";
 exports.index = function (req, res) {
-  res.render('index', { title: '首页' });
+  res.render('index', { title: 'Home' });
 };
 exports.login = function (req, res) {
-  res.render('login', { title: '用户登陆'});
+  res.render('login', { title: 'login page'});
 };
 exports.doLogin = function (req, res) {
   var user = {
@@ -15,8 +15,9 @@ exports.doLogin = function (req, res) {
   };
   if (req.body.username === user.username && req.body.password === user.password) {
     res.redirect('/home');
+  }else{
+    res.redirect('/login');
   }
-  res.redirect('/login');
 };
 exports.logout = function (req, res) {
   res.redirect('/');

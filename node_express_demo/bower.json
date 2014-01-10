@@ -11,12 +11,18 @@
     "express",
     "demo"
   ],
+  "dependencies": {
+    "jquery": "*",
+    "bootstrap": "*",
+    "html5shiv": "*",
+    "respond": "*"
+  },
   "license": "MIT",
   "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
-    "components",
+    "public/components",
     "test",
     "tests"
   ]

@@ -8,11 +8,8 @@
 <% include nav.html %>
 <div class="container">
     <div class="col-md-4 col-md-offset-4">
-        <h1><%= title %></h1>
-
-        <p>Welcome to <%= title %></p>
-
-        <p><a href="/login">Login</a></p>
+        <h1>Welcome <%= user.username %>, 欢迎登陆！！</h1>
+        <a claa="btn" href="/logout">退出</a>
     </div>
 </div>
 
