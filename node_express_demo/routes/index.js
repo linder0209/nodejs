@@ -14,18 +14,17 @@ exports.doLogin = function (req, res) {
     password: 'admin'
   };
   if (req.body.username === user.username && req.body.password === user.password) {
+    req.session.user = user;
     res.redirect('/home');
-  }else{
+  } else {
+    req.session.error = 'The username or password is invalid, please relogin again.';
     res.redirect('/login');
   }
 };
 exports.logout = function (req, res) {
+  req.session.user = null;
   res.redirect('/');
 };
 exports.home = function (req, res) {
-  var user = {
-    username: 'admin',
-    password: 'admin'
-  };
-  res.render('home', { title: 'Home', user: user});
+  res.render('home', { title: 'Home'});
 };
