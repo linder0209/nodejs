@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="blogApp" ng-controller="MainCtrl">
+<head>
+    <title><%= title %></title>
+    <% include ../common/header.html %>
+</head>
+<body ng-controller="HomeCtrl">
+<% include ../common/nav.html %>
+
+<div class="container">
+    <div>
+         <h1>这是首页面，后期会显示相关内容</h1>
+    </div>
+</div>
+
+<% include ../common/footer.html %>
+
+<script type="text/javascript" src="/modules/home/ng-app.js"></script>
+<script type="text/javascript" src="/common/controller-main.js"></script>
+<script type="text/javascript" src="/modules/home/controller.js"></script>
+
+</body>
+</html>

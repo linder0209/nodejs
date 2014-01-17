@@ -5,7 +5,7 @@
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
+var blog = require('./routes/blog');
 var http = require('http');
 var path = require('path');
 var ejs = require('ejs');
@@ -54,37 +54,15 @@ app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 //设置多个 static-files ，这样在加载的时候就可以不用书写public和components
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public/components')));
+app.use(express.static(path.join(__dirname, 'public/javascripts')));
 
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//定义路由
-app.get('/', routes.index);
-
-app.all('/login', notAuthentication);
-app.get('/login', routes.login);
-app.post('/login', routes.doLogin);
-app.get('/logout', authentication);
-app.get('/logout', routes.logout);
-app.get('/home', authentication);
-app.get('/home', routes.home);
-
-// 过滤函数
-function authentication(req, res, next) {
-  if (!req.session.user) {
-    req.session.error = 'Please login at first.';
-    return res.redirect('/login');
-  }
-  next();
-}
-function notAuthentication(req, res, next) {
-  if (req.session.user) {
-    return res.redirect('/home');
-  }
-  next();
-}
+// 加载路由选择
+routes(app);
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));

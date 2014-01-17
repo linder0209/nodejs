@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="blogApp" ng-controller="MainCtrl">
+<head>
+    <title><%= title %></title>
+    <% include ../common/header.html %>
+</head>
+<body ng-controller="BlogCtrl">
+<% include ../common/nav.html %>
+<div class="container">
+    <div>
+        <h3>博客列表</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Author</th>
+                <th>Body</th>
+                <th>Created On</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="blog in blogList">
+                <td>{{$index}}</td>
+                <td>{{blog.title}}</td>
+                <td>{{blog.category}}</td>
+                <td>{{blog.author}}</td>
+                <td>{{blog.body}}</td>
+                <td>{{blog.date}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>添加新的博客</h3>
+        <form class="form-horizontal" name="blogForm" id="blogForm" ng-submit="saveBlog();">
+            <div class="form-group">
+                <label for="title" class="col-sm-3 control-label">Title</label>
+                <div class="col-sm-7">
+                    <input type="text" id="title" name="title" ng-model="blog.title" class="form-control" maxlength="100" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="author" class="col-sm-3 control-label">Author</label>
+                <div class="col-sm-7">
+                    <input type="text" id="author" name="author" ng-model="blog.author" class="form-control" maxlength="100" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="category" class="col-sm-3 control-label">Category</label>
+                <div class="col-sm-7">
+                    <select name="category" id="category" class="form-control" ng-model="blog.category" ng-options="c.id as c.name for c in blogCategory">
+                        <option value="">-- selected --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="body" class="col-sm-3 control-label">Body</label>
+                <div class="col-sm-7">
+                    <textarea name="body" id="body" cols="30" rows="10" ng-model="blog.body" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-5">
+                    <button class="btn btn-primary btn-block" type="submit">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<% include ../common/footer.html %>
+
+<script type="text/javascript" src="/common/httpInterceptor.js"></script>
+<script type="text/javascript" src="/modules/blog/ng-app.js"></script>
+<script type="text/javascript" src="/common/controller-main.js"></script>
+<script type="text/javascript" src="/modules/blog/controller.js"></script>
+
+</body>
+</html>

@@ -15,7 +15,8 @@
     "jquery": "*",
     "bootstrap": "*",
     "html5shiv": "*",
-    "respond": "*"
+    "respond": "*",
+    "angular": "*"
   },
   "license": "MIT",
   "private": true,

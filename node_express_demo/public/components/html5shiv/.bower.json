@@ -21,7 +21,6 @@
     "commit": "a4d4dcbe0875ba10c4c56c54454ae93031d59584"
   },
   "_source": "git://github.com/aFarkas/html5shiv.git",
-  "_target": "~3.7.0",
-  "_originalSource": "html5shiv",
-  "_direct": true
+  "_target": "*",
+  "_originalSource": "html5shiv"
 }
